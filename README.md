@@ -1,0 +1,1 @@
+[![Build status](https://ci.appveyor.com/api/projects/status/ukhyc11vnefsh16l?svg=true)](https://ci.appveyor.com/project/nionka/ajs-oop-1)
