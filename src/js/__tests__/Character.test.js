@@ -66,3 +66,65 @@ test('checking class creation Character', () => {
 
   expect(creationNewCharacter()).toBe('Zombie');
 });
+
+test('checking class methods Character', () => {
+  function creationNewCharacter() {
+    const user = new Character('Ironman', 'Bowman');
+    user.attack = 25;
+    user.defence = 25;
+    user.levelUp();
+    return user;
+  }
+
+  const expected = {
+    name1: 'Ironman', type1: 'Bowman', level: 2, health: 100, attack: 30, defence: 30,
+  };
+
+  expect(creationNewCharacter()).toEqual(expected);
+});
+
+test('checking class methods Character', () => {
+  function creationNewCharacter() {
+    const user = new Character('Ironman', 'Bowman');
+    user.health = 0;
+    user.attack = 25;
+    user.defence = 25;
+    user.levelUp();
+    return user;
+  }
+
+  expect(creationNewCharacter).toThrowError(new Error('Нельзя повысить левел умершего'));
+});
+
+test('checking class methods Character', () => {
+  function creationNewCharacter() {
+    const user = new Character('Ironman', 'Bowman');
+    user.attack = 25;
+    user.defence = 25;
+    user.damage(10);
+    return user;
+  }
+
+  const expected = {
+    name1: 'Ironman', type1: 'Bowman', level: 1, health: 92.5, attack: 25, defence: 25,
+  };
+
+  expect(creationNewCharacter()).toEqual(expected);
+});
+
+test('checking class methods Character', () => {
+  function creationNewCharacter() {
+    const user = new Character('Ironman', 'Bowman');
+    user.health = 5;
+    user.attack = 25;
+    user.defence = 25;
+    user.damage(10);
+    return user;
+  }
+
+  const expected = {
+    name1: 'Ironman', type1: 'Bowman', level: 1, health: 0, attack: 25, defence: 25,
+  };
+
+  expect(creationNewCharacter()).toEqual(expected);
+});
