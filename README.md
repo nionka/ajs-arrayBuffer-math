@@ -1,0 +1,1 @@
+[![Build status](https://ci.appveyor.com/api/projects/status/jcc65hyd4n3v3ynm?svg=true)](https://ci.appveyor.com/project/nionka/ajs-arraybuffer-math)
