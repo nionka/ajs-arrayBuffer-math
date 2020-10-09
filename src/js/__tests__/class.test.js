@@ -1,60 +1,42 @@
-import Bowman from '../Bowman';
-import Daemon from '../Daemon';
-import Magician from '../Magician';
-import Swordsman from '../Swordsman';
-import Undead from '../Undead';
-import Zombie from '../Zombie';
+import Magic from '../Magic';
 
-test('checking class creation Bowman', () => {
-  const received = new Bowman('Oleg', 'Bowman');
-  const expected = {
-    name1: 'Oleg', type1: 'Bowman', level: 1, health: 100, attack: 25, defence: 25,
-  };
+describe('check attack class Magic', () => {
+  const daemon = new Magic('Oleg', 'Daemon');
 
-  expect(received).toEqual(expected);
+  test('check attack 1', () => {
+    daemon.newAttack = 1;
+    expect(daemon.newAttack).toBe(10);
+  });
+  test('check attack 2', () => {
+    daemon.newAttack = 2;
+    expect(daemon.newAttack).toBe(9);
+  });
+  test('check attack 3', () => {
+    daemon.newAttack = 10;
+    expect(daemon.newAttack).toBe(0);
+  });
+  test('check attack 4', () => {
+    daemon.newAttack = 12;
+    expect(daemon.newAttack).toBe(0);
+  });
 });
 
-test('checking class creation Daemon', () => {
-  const received = new Daemon('Oleg', 'Daemon');
-  const expected = {
-    name1: 'Oleg', type1: 'Daemon', level: 1, health: 100, attack: 10, defence: 40,
-  };
+describe('check attack with stoned class Magic', () => {
+  const daemon = new Magic('Oleg', 'Daemon');
+  daemon.stoned = true;
 
-  expect(received).toEqual(expected);
-});
+  test('check attack with stoned 1', () => {
+    daemon.newAttack = 1;
+    expect(daemon.newAttack).toBe(10);
+  });
 
-test('checking class creation Magician', () => {
-  const received = new Magician('Oleg', 'Magician');
-  const expected = {
-    name1: 'Oleg', type1: 'Magician', level: 1, health: 100, attack: 10, defence: 40,
-  };
+  test('check attack with stoned 2', () => {
+    daemon.newAttack = 2;
+    expect(daemon.newAttack).toBe(4);
+  });
 
-  expect(received).toEqual(expected);
-});
-
-test('checking class creation Swordsman', () => {
-  const received = new Swordsman('Oleg', 'Swordsman');
-  const expected = {
-    name1: 'Oleg', type1: 'Swordsman', level: 1, health: 100, attack: 40, defence: 10,
-  };
-
-  expect(received).toEqual(expected);
-});
-
-test('checking class creation Undead', () => {
-  const received = new Undead('Oleg', 'Undead');
-  const expected = {
-    name1: 'Oleg', type1: 'Undead', level: 1, health: 100, attack: 25, defence: 25,
-  };
-
-  expect(received).toEqual(expected);
-});
-
-test('checking class creation Zombie', () => {
-  const received = new Zombie('Oleg', 'Zombie');
-  const expected = {
-    name1: 'Oleg', type1: 'Zombie', level: 1, health: 100, attack: 40, defence: 10,
-  };
-
-  expect(received).toEqual(expected);
+  test('check attack with stoned 3', () => {
+    daemon.newAttack = 5;
+    expect(daemon.newAttack).toBe(0);
+  });
 });
